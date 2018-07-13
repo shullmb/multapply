@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
+  propertyManager: {type: Schema.Types.ObjectId, ref: 'User'},
   title: String,
   description: String,
-  address: { street: String, city: String, state: String, zip: Number },
+  address: {street: String, city: String, state: String, zip: Number},
   available: Boolean,
   dateAvailable: Date,
+  numUnits: Number,
   bedrooms: Number,
   bathrooms: Number,
   sqFeet: Number,

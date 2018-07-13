@@ -8,13 +8,15 @@ const userSchema = new mongoose.Schema({
   bio: String,
   dateOfBirth: Date, 
   phone: Number,
-  currentAddress: { street: String, city: String, state: String, zip: Number },
-  prevAddresses: [{ street: String, city: String, state: String, zip: Number }], // Child of User
+  currentAddress: { street: String, city: String, state: String, zip: Number},
+  prevAddresses: [{ street: String, city: String, state: String, zip: Number}], // Child of User
   socialSecurity: Number,
-  currentEmponer: String,
+  currentEmployer: String,
   currentMonthIncome: Number,
-  creditScore: { type: Number, min: 300, max: 850 },
-  references: [{ name: { first: String, last: String }, phone: Number, email: String }] // Child of User
+  creditScore: {type: Number, min: 300, max: 850},
+  references: [{name: { first: String, last: String }, phone: Number, email: String}], // Child of User
+  isPropertyManager: Boolean,
+  propertiesManaged: [{ type: Schema.Types.ObjectId, ref: 'Listing' }],
 })
 
 userSchema.set('toObject', {
@@ -28,11 +30,13 @@ userSchema.set('toObject', {
       phone: ret.phone,
       currentAddress: ret.currentAddress,
       prevAddresses: ret.prevAddresses,
-      socialSecurity: ret.sociaISecurity,
-      currentEmponer: ret.currentEmponer,
+      socialSecurity: ret.socialSecurity,
+      currentEmloyer: ret.currentEmloyer,
       currentMonthIncome: ret.currentMonthIncome,
       creditScore: ret.creditScore,
-      references: ret.references
+      references: ret.references,
+      isPropertyManager: ret.isPropertyManager,
+      propertiesManaged: ret.propertiesManaged
     }
     return returnJson;
   }
