@@ -11,13 +11,13 @@ const app = express();
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
 
-mongoose.connect('mongodb://localhost/jwtAuth')
+mongoose.connect('mongodb://localhost/multapplyDev')
 
 
 app.use(express.static(__dirname+ "/client/build"));
 
 app.use('/auth', auth);
-app.use('/locked', expressJWT({secret: process.env.JWT_SECRET}).unless({metho: 'POST'}), locked);
+
 
 
 
