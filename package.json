@@ -1,0 +1,28 @@
+{
+  "name": "multapply",
+  "version": "0.0.1",
+  "description": "An application for applications",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shullmb/multapply.git"
+  },
+  "author": "@ericaschenker, @rkvasisht, @shullmb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shullmb/multapply/issues"
+  },
+  "homepage": "https://github.com/shullmb/multapply#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.3"
+  }
+}
