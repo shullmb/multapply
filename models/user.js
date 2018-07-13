@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   creditScore: {type: Number, min: 300, max: 850},
   references: [{name: { first: String, last: String }, phone: Number, email: String}], // Child of User
   isPropertyManager: Boolean,
-  propertiesManaged: [{ type: Schema.Types.ObjectId, ref: 'Listing' }],
+  propertiesManaged: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Listing' }],
 })
 
 userSchema.set('toObject', {
