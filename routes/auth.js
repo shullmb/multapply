@@ -15,7 +15,7 @@ router.post('/signup', (req, res) => {
        error: true,
        message: "Email already exists"
      });
-   } else{
+   } else {
      //if the email is not taken..
       //create the user in the DB
      User.create({
@@ -28,7 +28,7 @@ router.post('/signup', (req, res) => {
         console.log("WE GOT AN ERROR CREATE THE USER!!!")
         console.log(err);
         res.status(401).json(err);
-      } else{
+      } else {
         //Log the user in (sign a new token)
         console.log("JUST ABOUT TO SIGN THE TOKEN!!");
         var token = jwt.sign(user.toObject(),process.env.JWT_SECRET,{
@@ -37,17 +37,9 @@ router.post('/signup', (req, res) => {
         //Return user and token to React apps
         res.json({user, token});
       }
-
-
-
      })
-
-
    }
-
   })
-
-
 });
 
 router.post('/login', (req, res)=>{
@@ -95,19 +87,19 @@ router.post('/me/from/token', (req, res)=>{
       error: true,
       message: "You must pass a token"
     })
-  }else{
+  } else {
     //we do have a token
     //validate the token
     jwt.verify(token, process.env.JWT_SECRET,function(err,user){
       if(err){
         //if the toke is invalid...
         res.status(401).json(err);
-      }else{
+      } else {
             //look up the user in the //DB
         User.findById(user._id, function(err,user){
           if(err){
             res.status(401).json(err);
-          }else{
+          } else {
               //send the user and the token back to the React app
             res.json({user, token});
           }
