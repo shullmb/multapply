@@ -1,6 +1,19 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const prevAddressSchema = new mongoose.Schema({
+  street: String,
+  city: String,
+  state: String,
+  zip: Number
+})
+
+const referenceSchema = new mongoose.Schema({
+  name: {first: String, last: String}, 
+  phone: Number, 
+  email: String
+})
+
 const userSchema = new mongoose.Schema({
   name: {first: String, last: String},
   email: {type: String, required: true},
@@ -9,12 +22,12 @@ const userSchema = new mongoose.Schema({
   dateOfBirth: Date, 
   phone: Number,
   currentAddress: { street: String, city: String, state: String, zip: Number},
-  prevAddresses: [{ street: String, city: String, state: String, zip: Number}], // Child of User
+  prevAddresses: [prevAddressSchema], // Child of User
   socialSecurity: Number,
   currentEmployer: String,
   currentMonthIncome: Number,
   creditScore: {type: Number, min: 300, max: 850},
-  references: [{name: { first: String, last: String }, phone: Number, email: String}], // Child of User
+  references: [referenceSchema], // Child of User
   isPropertyManager: Boolean,
   propertiesManaged: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Listing' }],
 })
