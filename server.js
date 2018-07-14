@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
 const users = require('./routes/users')
+const listings = require('./routes/listings')
+
 const app = express();
 //this line lets us accept POST data from axios
 app.use(bp.json());
@@ -17,7 +19,7 @@ app.use(express.static(__dirname+ "/client/build"));
 
 app.use('/auth', auth);
 app.use('/users', users);
-
+app.use('/listings', listings);
 
 
 
