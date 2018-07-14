@@ -7,7 +7,7 @@ const User = require("../models/User");
 router.put('/:id', (req, res)=>{
   User.findByIdandUpdate(req.params.id,{
 
-      name: {first: req.body.name.first, last: req.body.name.fir},
+      name: {first: req.body.name.first, last: req.body.name.first},
       bio: req.body.bio,
       dateOfBirth: req.body.dateOfBirth,
       phone: req.body.phone,
@@ -26,3 +26,5 @@ router.put('/:id', (req, res)=>{
       }
     }
   })
+
+  module.exports = router;
