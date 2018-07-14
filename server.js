@@ -4,6 +4,7 @@ const bp = require('body-parser');
 const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
+const listing = require('./routes/listings')
 
 const app = express();
 //this line lets us accept POST data from axios
@@ -16,7 +17,7 @@ mongoose.connect('mongodb://localhost/multapplyDev')
 app.use(express.static(__dirname+ "/client/build"));
 
 app.use('/auth', auth);
-
+app.use('/listings', listings);
 
 
 
