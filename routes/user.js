@@ -4,22 +4,25 @@ const mongoose = require('mongoose');
 const User = require("../models/User");
 
 
-router.('/:id', (req, res)=>{
+router.put('/:id', (req, res)=>{
   User.findByIdandUpdate(req.params.id,{
 
-      first: req.body.name.first,
-      last: req.body.name.last,
+      name: {first: req.body.name.first, last: req.body.name.fir},
       bio: req.body.bio,
       dateOfBirth: req.body.dateOfBirth,
       phone: req.body.phone,
-      street: req.body.currentAddress.street,
-      city: req.body.currentAddress.city,
-      zip: req.body.currentAddress.zip,
+      currentAddress:{street: req.body.currentAddress.street, city: req.body.currentAddress.city, zip: req.body.currentAddress.zip},
+      prevAddresses: { street: req.body.prevAddresses.street, city: req.body.prevAddresses.street, state: req.body.prevAddresses.state, zip: req.body.prevAddresses.zip},
       socialSecurity: req.body.socialSecurity,
       currentEmployer: req.body.currentEmployer,
       currentMonthIncome: req.body.currentMonthIncome,
-      creditScore: req.body.creditScore,
-      }).
-    })
-
+      creditScore: req.body.creditScore
+    }),function(err, user){
+      if(err) {
+        console.log(err);
+      } else {
+        console.log(user);
+        res.status(200);
+      }
+    }
   })
