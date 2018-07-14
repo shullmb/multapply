@@ -4,6 +4,7 @@ const bp = require('body-parser');
 const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
+const users = require('./routes/users')
 const listings = require('./routes/listings')
 
 const app = express();
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://localhost/multapplyDev')
 app.use(express.static(__dirname+ "/client/build"));
 
 app.use('/auth', auth);
+app.use('/users', users);
 app.use('/listings', listings);
 
 
