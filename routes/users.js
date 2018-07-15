@@ -6,13 +6,14 @@ const User = require("../models/User");
 
 router.put('/:id', (req, res)=>{
   User.findByIdandUpdate(req.params.id,{
-
-      name: {first: req.body.name.first, last: req.body.name.first},
+      name: req.body.name,
       bio: req.body.bio,
       dateOfBirth: req.body.dateOfBirth,
       phone: req.body.phone,
-      currentAddress:{street: req.body.currentAddress.street, city: req.body.currentAddress.city, zip: req.body.currentAddress.zip},
-      prevAddresses: { street: req.body.prevAddresses.street, city: req.body.prevAddresses.street, state: req.body.prevAddresses.state, zip: req.body.prevAddresses.zip},
+      street: req.body.street,
+      city: req.body.city,
+      zip: req.body.zip,
+      prevAddresses: [],
       socialSecurity: req.body.socialSecurity,
       currentEmployer: req.body.currentEmployer,
       currentMonthIncome: req.body.currentMonthIncome,

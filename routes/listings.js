@@ -16,25 +16,36 @@ router.get('/', (req, res) => {
 
 // POST /listings
 router.post('/', (req, res) => {
+  console.log('><><> hitting LISTING POST route <><><')
   Listing.create({
-    propertyManager: { type: req.params._id, ref: 'User' },
-    title: req.params.title,
-    description: req.params.description,
-    address: { 
-      street: req.params.address.street,
-      city: req.params.city, 
-      state: String, 
-      zip: Number },
-    available: Boolean,
-    dateAvailable: Date,
-    numUnits: Number,
-    bedrooms: Number,
-    bathrooms: Number,
-    sqFeet: Number,
-    pets: { dogs: Boolean, cats: Boolean, other: Boolean },
-    applicants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Group' }]
+    propertyManager: req.body.propertyManager,
+    title: req.body.title,
+    description: req.body.description,
+    street: req.body.street,
+    city: req.body.city, 
+    state: req.body.state, 
+    zip: req.body.zip,
+    available: req.body.available,
+    dateAvailable: req.body.dateAvailable,
+    numUnits: req.body.numUnits,
+    bedrooms: req.body.bedrooms,
+    bathrooms: req.body.bathrooms,
+    sqFeet: req.body.sqFeet,
+    dogs: req.body.dogs, 
+    cats: req.body.cats, 
+    otherPets: req.body.other,
+    applicants: []
+  }, function(err, listing) {
+    if (err) {
+      console.log(err)
+    } else {
+        console.log(`LISTING: ${listing}`)
+      // Listing.findById(listing._id).populate()
+      res.json(listing);
+    }
   })
 })
+
 // GET /listings/:id
 
 // PUT /listings/:id
