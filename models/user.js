@@ -9,19 +9,22 @@ const prevAddressSchema = new mongoose.Schema({
 })
 
 const referenceSchema = new mongoose.Schema({
-  name: {first: String, last: String}, 
+  name: String, 
   phone: Number, 
   email: String
 })
 
 const userSchema = new mongoose.Schema({
-  name: {first: String, last: String},
+  name: String,
   email: {type: String, required: true},
   password: {type: String, required: true},
   bio: String,
   dateOfBirth: Date, 
   phone: Number,
-  currentAddress: { street: String, city: String, state: String, zip: Number},
+  street: String, 
+  city: String, 
+  state: String, 
+  zip: Number,
   prevAddresses: [prevAddressSchema], // Child of User
   socialSecurity: Number,
   currentEmployer: String,
@@ -30,6 +33,10 @@ const userSchema = new mongoose.Schema({
   references: [referenceSchema], // Child of User
   isPropertyManager: Boolean,
   propertiesManaged: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Listing' }],
+})
+
+userSchema.virtual('currentAddress').get( function() {
+  return this.street + ' ' + this.city + ' ' + this.state + ' ' + this.zip;
 })
 
 userSchema.set('toObject', {
