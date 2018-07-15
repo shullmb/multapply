@@ -6,6 +6,8 @@ import Modal from 'react-responsive-modal';
 import axios from 'axios';
 import Login from './Login';
 import Signup from './Signup';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -14,11 +16,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-            <Login />
-          <br />
-
-            <Signup />
-
+            <Navbar />
+            <h1>MULTAPPLY</h1>
+            <p>An application for applications</p>
         </div>
       </Router>
     );
