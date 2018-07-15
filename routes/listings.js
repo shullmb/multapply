@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     state: req.body.state, 
     zip: req.body.zip,
     available: req.body.available,
-    dateAvailable: req.body.dateAvailable,
+    dateAvailable: new Date(req.body.dateAvailable),
     numUnits: req.body.numUnits,
     bedrooms: req.body.bedrooms,
     bathrooms: req.body.bathrooms,
@@ -47,8 +47,40 @@ router.post('/', (req, res) => {
 })
 
 // GET /listings/:id
+router.get('/:id', (req, res) => {
+  console.log('<><> HITTING THE SHOW ROUTE <><>')
+  Listing.findOne({_id: req.params.id}, function(err, listing) {
+    err ? res.send(err) : console.log(listing);
+    res.json(listing);
+  })
+})
 
 // PUT /listings/:id
+router.put('/:id', (req, res) => {
+  console.log('🙌  🙌 HITTING THE PUT ROUTE 🙌  🙌')
+  Listing.findByIdAndUpdate(req.params.id, {
+    propertyManager: req.body.propertyManager,
+    title: req.body.title,
+    description: req.body.description,
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    available: req.body.available,
+    dateAvailable: new Date(req.body.dateAvailable),
+    numUnits: req.body.numUnits,
+    bedrooms: req.body.bedrooms,
+    bathrooms: req.body.bathrooms,
+    sqFeet: req.body.sqFeet,
+    dogs: req.body.dogs,
+    cats: req.body.cats,
+    otherPets: req.body.otherPets,
+    applicants: req.body.applicants
+  }, function(err, listing) {
+    err ? res.send(err) : console.log(listing);
+    res.json(listing);
+  })
+})
 
 // DELETE /listings/:id
 
