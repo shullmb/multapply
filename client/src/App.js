@@ -19,6 +19,7 @@ class App extends Component {
             <Navbar />
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
+            <Footer />
         </div>
       </Router>
     );
