@@ -17,24 +17,34 @@ router.get('/', (req, res) => {
 // POST /listings
 router.post('/', (req, res) => {
   Listing.create({
-    propertyManager: { type: req.params._id, ref: 'User' },
+    propertyManager: req.params.propertyManager,
     title: req.params.title,
     description: req.params.description,
     address: { 
       street: req.params.address.street,
       city: req.params.city, 
-      state: String, 
-      zip: Number },
-    available: Boolean,
-    dateAvailable: Date,
-    numUnits: Number,
-    bedrooms: Number,
-    bathrooms: Number,
-    sqFeet: Number,
-    pets: { dogs: Boolean, cats: Boolean, other: Boolean },
-    applicants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Group' }]
+      state: req.params.state, 
+      zip: req.params.zip 
+    },
+    available: req.params.available,
+    dateAvailable: req.params.dateAvailable,
+    numUnits: req.params.numUnits,
+    bedrooms: req.params.bedrooms,
+    bathrooms: req.params.bathrooms,
+    sqFeet: req.params.sqFeet,
+    pets: { dogs: req.params.dogs, cats: req.params.cats, other: req.params.other },
+    applicants: []
+  }, function(err, listing) {
+    if (err) {
+      console.log(err)
+    } else {
+        console.log(`LISTING: ${listing}`)
+      // Listing.findById(listing._id).populate()
+      res.json(listing);
+    }
   })
 })
+
 // GET /listings/:id
 
 // PUT /listings/:id
