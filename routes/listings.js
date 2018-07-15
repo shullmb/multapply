@@ -47,8 +47,18 @@ router.post('/', (req, res) => {
 })
 
 // GET /listings/:id
+router.get('/:id', (req, res) => {
+  console.log('<><> HITTING THE SHOW ROUTE <><>')
+  Listing.findOne({_id: req.params.id}, function(err, listing) {
+    err ? res.send(err) : console.log(listing);
+    res.json(listing);
+  })
+})
 
 // PUT /listings/:id
+router.put('/:id', (req, res) => {
+  
+})
 
 // DELETE /listings/:id
 
