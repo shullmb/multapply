@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const bp = require('body-parser');
+import ReactDOM from 'react-dom';
 const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
 const auth = require('./routes/auth');
