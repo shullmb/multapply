@@ -16,23 +16,24 @@ router.get('/', (req, res) => {
 
 // POST /listings
 router.post('/', (req, res) => {
+  console.log('><><> hitting LISTING POST route <><><')
   Listing.create({
-    propertyManager: req.params.propertyManager,
-    title: req.params.title,
-    description: req.params.description,
-    address: { 
-      street: req.params.address.street,
-      city: req.params.city, 
-      state: req.params.state, 
-      zip: req.params.zip 
-    },
-    available: req.params.available,
-    dateAvailable: req.params.dateAvailable,
-    numUnits: req.params.numUnits,
-    bedrooms: req.params.bedrooms,
-    bathrooms: req.params.bathrooms,
-    sqFeet: req.params.sqFeet,
-    pets: { dogs: req.params.dogs, cats: req.params.cats, other: req.params.other },
+    propertyManager: req.body.propertyManager,
+    title: req.body.title,
+    description: req.body.description,
+    street: req.body.street,
+    city: req.body.city, 
+    state: req.body.state, 
+    zip: req.body.zip,
+    available: req.body.available,
+    dateAvailable: req.body.dateAvailable,
+    numUnits: req.body.numUnits,
+    bedrooms: req.body.bedrooms,
+    bathrooms: req.body.bathrooms,
+    sqFeet: req.body.sqFeet,
+    dogs: req.body.dogs, 
+    cats: req.body.cats, 
+    otherPets: req.body.other,
     applicants: []
   }, function(err, listing) {
     if (err) {

@@ -9,8 +9,8 @@ const listings = require('./routes/listings')
 
 const app = express();
 //this line lets us accept POST data from axios
-app.use(bp.json());
-app.use(bp.urlencoded({extended: false}));
+app.use(bp.json()); 
+app.use(bp.urlencoded({ extended: false }));
 
 mongoose.connect('mongodb://localhost/multapplyDev')
 
@@ -23,9 +23,9 @@ app.use('/listings', listings);
 
 
 
-// app.get('*',(req, res)=>{
-//   res.sendFile(__dirname + "/client/build/index.html");
-// });
+app.get('*',(req, res)=>{
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 
 

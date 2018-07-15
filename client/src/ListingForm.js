@@ -20,6 +20,7 @@ class ListingForm extends Component {
       sqFeet: ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -29,31 +30,29 @@ class ListingForm extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-
-    axios.post({
-      propertyManager: "",
+    e.preventDefault();
+    console.log(this.state)
+    axios.post('/listings', {
+      propertyManager: this.state.propertyManager,
       title: this.state.title,
       description: this.state.description,
-      address: {
-        street: this.state.street,
-        city: this.state.city,
-        state: this.state.state,
-        zip: this.state.zip
-      },
+      street: this.state.street,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
       available: this.state.available,
       dateAvailable: this.state.dateAvailable,
       numUnits: this.state.numUnits,
       bedrooms: this.state.bedrooms,
       bathrooms: this.state.bathrooms,
       sqFeet: this.state.sqFeet,
-      pets: {
-        dogs: false,
-        cats: false,
-        other: true
-      }
-    }).then( (err, results) => {
-      err ? console.log(err) : console.log(results);
+      dogs: false,
+      cats: false,
+      otherPets: true
+    }).then( (results) => {
+      console.log(results);
+    }).catch(err => {
+      console.log(err)
     })
   }
 
