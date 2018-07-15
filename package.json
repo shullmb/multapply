@@ -26,7 +26,6 @@
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.3",
-    "react-responsive-modal": "^3.1.0",
-    "react-router-dom": "^4.3.1"
+    "react-responsive-modal": "^3.1.0"
   }
 }
