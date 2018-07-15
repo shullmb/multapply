@@ -28,23 +28,25 @@ class ListingForm extends Component {
     })
   }
 
-  handleSubmit(listing) {
+  handleSubmit(e) {
+    e.preventDefault()
+
     axios.post({
       propertyManager: "",
-      title: listing.title,
-      description: listing.description,
+      title: this.state.title,
+      description: this.state.description,
       address: {
-        street: listing.street,
-        city: listing.city,
-        state: listing.state,
-        zip: listing.zip
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip
       },
-      available: listing.available,
-      dateAvailable: listing.dateAvailable,
-      numUnits: listing.numUnits,
-      bedrooms: listing.bedrooms,
-      bathrooms: listing.bathrooms,
-      sqFeet: listing.sqFeet,
+      available: this.state.available,
+      dateAvailable: this.state.dateAvailable,
+      numUnits: this.state.numUnits,
+      bedrooms: this.state.bedrooms,
+      bathrooms: this.state.bathrooms,
+      sqFeet: this.state.sqFeet,
       pets: {
         dogs: false,
         cats: false,
@@ -104,6 +106,3 @@ class ListingForm extends Component {
 }
 
 export default ListingForm
-// pets.dogs: true
-// pets.cats: false
-// pets.other: true
