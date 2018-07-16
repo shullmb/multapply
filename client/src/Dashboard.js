@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Profile from './Profile';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
   
@@ -13,19 +15,18 @@ class Dashboard extends Component {
         </Grid>
         <Grid item xs={12} sm={6}>
           <img src="../img/smiley.png" /><br />
-          <button class='bio-btn'>Edit photo</button>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <h4>Hello, (NAME)!</h4><br />
-          <button class='bio-btn'>Update profile</button>
+          <h2>Hello, {this.props.user.name}!</h2><br />
+          <Link to="/Profile">Update profile</Link>
           <p>Enter your rental application, credit score, and other info property managers need to know.</p>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <button class='listings-btn'>Listings</button><br />
+        <Link to="/Listings">Listings</Link>
         <p>Search rental listings</p>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <button class='groups-btn'>Groups</button><br />
+        <Link to="/Groups">Groups</Link>
         <p>Find, create, or manage groups</p>
         </Grid>
         <Grid item xs={12} sm={6}>

@@ -6,10 +6,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
 import ListingForm from './ListingForm';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Profile from './Profile';
+import Listings from './Listings';
+import Groups from './Groups';
 
 class App extends Component {
   constructor(props) {
@@ -73,7 +72,12 @@ class App extends Component {
             <Navbar logout={this.logout}/>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
-            <Route path='/Dashboard' component={Dashboard} />
+            <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
+            <Route path='/ListingForm' component={ListingForm} />
+            <Route path='/Profile' component={Profile}  />
+            <Route path='/Listings' component={Listings}  />
+            <Route path='/Groups' component={Groups}  />
+
             <Footer />
           </div>
         </Router>
