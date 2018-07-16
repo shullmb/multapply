@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import UpdateBio from './UpdateBio';
 
 class Profile extends Component {
   
@@ -17,7 +18,7 @@ class Profile extends Component {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper>I am a person looking for a home.</Paper>
-          <button class='bio-btn'>Update bio</button>
+          <UpdateBio  />
         </Grid>
         <Grid item xs={12}>
         <Paper>

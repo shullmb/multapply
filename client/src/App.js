@@ -9,6 +9,7 @@ import ListingForm from './ListingForm';
 import Profile from './Profile';
 import Listings from './Listings';
 import Groups from './Groups';
+import UpdateBio from './UpdateBio';
 
 class App extends Component {
   constructor(props) {
