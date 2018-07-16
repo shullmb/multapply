@@ -9,7 +9,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <Login />{` `}
+        <Login />
         <Signup />
       </div>
     )
