@@ -5,7 +5,7 @@ const User = require("../models/User");
 
 
 router.put('/:id', (req, res)=>{
-  User.findByIdandUpdate(req.params.id,{
+  User.findByIdAndUpdate(req.params.id,{
       name: req.body.name,
       bio: req.body.bio,
       dateOfBirth: req.body.dateOfBirth,
