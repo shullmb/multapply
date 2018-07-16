@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const User = require("../models/User");
 
 
+
+
 router.put('/:id', (req, res)=>{
-  User.findByIdandUpdate(req.params.id,{
+  User.findByIdAndUpdate(req.params.id,{
       name: req.body.name,
       bio: req.body.bio,
       dateOfBirth: req.body.dateOfBirth,
@@ -18,14 +20,19 @@ router.put('/:id', (req, res)=>{
       currentEmployer: req.body.currentEmployer,
       currentMonthIncome: req.body.currentMonthIncome,
       creditScore: req.body.creditScore
-    }),function(err, user){
+    },function(err, user){
       if(err) {
         console.log(err);
       } else {
         console.log(user);
-        res.status(200);
+        res.json(user);
       }
-    }
+    })
   })
 
   module.exports = router;
+
+
+
+
+  
