@@ -4,8 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ListingForm from './ListingForm';
 import Dashboard from './Dashboard';
+import ListingForm from './ListingForm';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -71,9 +71,9 @@ class App extends Component {
         <Router>
           <div>
             <Navbar logout={this.logout}/>
-            <p>Welcome, dude</p>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
+            <Route path='/Dashboard' component={Dashboard} />
             <Footer />
           </div>
         </Router>

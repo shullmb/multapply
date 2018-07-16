@@ -1,4 +1,4 @@
-button {
+.login-btn, .signup-btn {
   background: none!important;
   color: inherit;
   border: none; 
@@ -6,5 +6,7 @@ button {
   font: inherit;
   cursor: pointer;
 }
+
+
 
 
