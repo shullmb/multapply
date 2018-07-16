@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Listing = require('../models/Listing');
+const Listing = require('../models/listing');
+const Group = require('../models/group');
 
 // GET /listings
 router.get('/', (req, res) => {
@@ -52,6 +53,22 @@ router.get('/:id', (req, res) => {
     err ? res.send(err) : console.log(listing);
     res.json(listing);
   })
+})
+
+// PUT /listings/:id/apply
+router.put('/:id/apply', (req, res) => {
+  let testGroup = {_id: "5b4d04919ba0160471adef24", name: "TEST GROUP" }
+  Group.findOne({_id: testGroup._id }, function(err, group) {
+    group.listings.push(group.id);
+    group.save();
+    Listing.findById(req.params.id, function(err, listing) {
+      console.log(listing, group.id);
+      listing.applicants.push(group.id);
+      listing.save()
+    })
+  }).then( function(data) {
+    res.sendStatus(200);
+  });
 })
 
 // PUT /listings/:id
