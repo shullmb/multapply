@@ -77,9 +77,12 @@ router.put('/:id', (req, res) => {
     otherPets: req.body.otherPets,
     applicants: req.body.applicants
   }, function(err, listing) {
-    err ? res.send(err) : console.log(listing);
-    res.json(listing);
-  })
+    err ? res.send(err) :
+    listing.save( () => {
+        console.log(listing)
+        res.json(listing);
+      });
+    })
 })
 
 // DELETE /listings/:id
