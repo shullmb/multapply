@@ -5,6 +5,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ListingForm from './ListingForm';
+import Dashboard from './Dashboard';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
   constructor(props) {
@@ -66,9 +71,9 @@ class App extends Component {
         <Router>
           <div>
             <Navbar logout={this.logout}/>
+            <p>Welcome, dude</p>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
-            <ListingForm />
             <Footer />
           </div>
         </Router>
@@ -76,12 +81,12 @@ class App extends Component {
     } else {
       return (
         <Router>
-          <div>
+            <div>
               <Navbar liftTokenToState={this.liftTokenToState} logout={this.logout} />
               <h1>MULTAPPLY</h1>
               <p>An application for applications</p>
               <Footer />
-          </div>
+              </div>
         </Router>
       );
     }
