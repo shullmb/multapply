@@ -14,20 +14,15 @@ app.use(bp.urlencoded({ extended: false }));
 
 mongoose.connect('mongodb://localhost/multapplyDev')
 
-
 app.use(express.static(__dirname+ "/client/build"));
 
 app.use('/auth', auth);
 app.use('/users', users);
 app.use('/listings', listings);
 
-
-
-app.get('*',(req, res)=>{
-  res.sendFile(__dirname + "/client/build/index.html");
-});
-
-
+// app.get('*',(req, res)=>{
+//   res.sendFile(__dirname + "/client/build/index.html");
+// });
 
 var port = process.env.PORT || 3000;
 
