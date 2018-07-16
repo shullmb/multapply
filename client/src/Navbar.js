@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Signup from './Signup';
@@ -9,8 +8,9 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <Login />{` `}
-        <Signup />
+        <Login liftTokenToState={ this.props.liftTokenToState} />{` `}
+        <Signup liftTokenToState={this.props.liftTokenToState} />
+        <a onClick={this.props.logout}>Log out</a>
       </div>
     )
   }
