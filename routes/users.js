@@ -30,9 +30,12 @@ router.put('/:id', (req, res) => {
     })
   })
 
+
+router.delete('/:id', (req, res) => {
+    User.remove({_id: req.params.id}, function(err) {
+      console.log(err);
+    })
+    res.sendStatus(200);
+  });
+
   module.exports = router;
-
-
-
-
-  
