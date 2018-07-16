@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Listing = require('../models/Listing');
+const Listing = require('../models/listing');
+const Group = require('../models/group');
 
 // GET /listings
 router.get('/', (req, res) => {
@@ -39,8 +40,7 @@ router.post('/', (req, res) => {
     if (err) {
       console.log(err)
     } else {
-        console.log(`LISTING: ${listing}`)
-      // Listing.findById(listing._id).populate()
+      console.log(`LISTING: ${listing}`)
       res.json(listing);
     }
   })
@@ -55,27 +55,28 @@ router.get('/:id', (req, res) => {
   })
 })
 
+// PUT /listings/:id/apply
+router.put('/:id/apply', (req, res) => {
+  let testGroup = {_id: "5b4d04919ba0160471adef24", name: "TEST GROUP" }
+  Group.findOne({_id: testGroup._id }, function(err, group) {
+    group.listings.push(group.id);
+    group.save();
+    Listing.findById(req.params.id, function(err, listing) {
+      console.log(listing, group.id);
+      listing.applicants.push(group.id);
+      listing.save()
+    })
+  }).then( function(data) {
+    res.sendStatus(200);
+  });
+})
+
 // PUT /listings/:id
 router.put('/:id', (req, res) => {
   console.log('🙌  🙌 HITTING THE PUT ROUTE 🙌  🙌')
+  let updates = req.body;
   Listing.findByIdAndUpdate(req.params.id, {
-    propertyManager: req.body.propertyManager,
-    title: req.body.title,
-    description: req.body.description,
-    street: req.body.street,
-    city: req.body.city,
-    state: req.body.state,
-    zip: req.body.zip,
-    available: req.body.available,
-    dateAvailable: new Date(req.body.dateAvailable),
-    numUnits: req.body.numUnits,
-    bedrooms: req.body.bedrooms,
-    bathrooms: req.body.bathrooms,
-    sqFeet: req.body.sqFeet,
-    dogs: req.body.dogs,
-    cats: req.body.cats,
-    otherPets: req.body.otherPets,
-    applicants: req.body.applicants
+    $set: updates
   }, function(err, listing) {
     err ? res.send(err) :
     listing.save( () => {
