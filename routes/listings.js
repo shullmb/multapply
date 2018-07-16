@@ -83,6 +83,10 @@ router.put('/:id', (req, res) => {
 })
 
 // DELETE /listings/:id
-
+router.delete('/:id', (req, res) => {
+  Listing.findByIdAndRemove(req.params.id, function(err) {
+    err ? res.send(err) : res.sendStatus(200);
+  })
+})
 
 module.exports = router;
