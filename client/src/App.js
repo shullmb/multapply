@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import ListingForm from './ListingForm';
+import Profile from './Profile';
+import Listings from './Listings';
+import Groups from './Groups';
 
 class App extends Component {
   constructor(props) {
@@ -70,9 +70,14 @@ class App extends Component {
         <Router>
           <div>
             <Navbar logout={this.logout}/>
-            <p>Welcome, dude</p>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
+            <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
+            <Route path='/ListingForm' component={ListingForm} />
+            <Route path='/Profile' component={Profile}  />
+            <Route path='/Listings' component={Listings}  />
+            <Route path='/Groups' component={Groups}  />
+
             <Footer />
           </div>
         </Router>

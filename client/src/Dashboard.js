@@ -1,54 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Profile from './Profile';
+import { Link } from 'react-router-dom';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-});
-
-function Dashboard(props) {
-  const { classes } = props;
-
-  return (
-    <div className={classes.root}>
+class Dashboard extends Component {
+  
+  render() {
+    return (
+      <div>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>xs=12</Paper>
+          <h1>DASHBOARD</h1>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          <img src="../img/smiley.png" /><br />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          <h2>Hello, {this.props.user.name}!</h2><br />
+          <Link to="/Profile">Update profile</Link>
+          <p>Enter your rental application, credit score, and other info property managers need to know.</p>
         </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        <Grid item xs={12} sm={6}>
+        <Link to="/Listings">Listings</Link>
+        <p>Search rental listings</p>
         </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        <Grid item xs={12} sm={6}>
+        <Link to="/Groups">Groups</Link>
+        <p>Find, create, or manage groups</p>
         </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        <Grid item xs={12} sm={6}>
+        <button class='invite-btn'>Invite</button><br />
+        <p>Invite other users to Multapply</p>
         </Grid>
       </Grid>
     </div>
-  );
+    )
+  }
 }
 
-Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+export default Dashboard;
 
-export default withStyles(styles)(Dashboard);
