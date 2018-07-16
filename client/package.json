@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.4.0",
     "axios": "^0.18.0",
+    "material-ui": "^0.20.1",
+    "muicss": "^0.9.39",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-responsive-modal": "^3.1.0",
