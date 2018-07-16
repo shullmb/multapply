@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ListingForm from './ListingForm';
 
 class App extends Component {
   constructor(props) {
@@ -68,7 +67,6 @@ class App extends Component {
             <Navbar logout={this.logout}/>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
-            <ListingForm />
             <Footer />
           </div>
         </Router>
