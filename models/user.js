@@ -16,8 +16,8 @@ const referenceSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
   name: String,
-  email: {type: String, required: true},
-  password: {type: String, required: true},
+  email: {type: String, required: false},
+  password: {type: String, required: false},
   bio: String,
   dateOfBirth: Date, 
   phone: Number,
