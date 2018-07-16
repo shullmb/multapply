@@ -21,14 +21,14 @@ router.put('/:id', (req, res) => {
       currentMonthIncome: req.body.currentMonthIncome,
       creditScore: req.body.creditScore
     },function(err, user) {
-      if(err) {
-        console.log(err);
-      } else {
-        console.log(user);
+      err ? res.send(err) :
+      user.save( function() {
         res.json(user);
-      }
+      })
     })
-  })
+
+    })
+
 
 
 router.delete('/:id', (req, res) => {
