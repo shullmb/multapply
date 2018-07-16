@@ -6,28 +6,20 @@ const User = require("../models/User");
 
 
 
+// PUT /users/:id
 router.put('/:id', (req, res) => {
+  console.log('🙌  🙌 HITTING THE PUT ROUTE 🙌  🙌')
+  let updates = req.body;
   User.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      bio: req.body.bio,
-      dateOfBirth: req.body.dateOfBirth,
-      phone: req.body.phone,
-      street: req.body.street,
-      city: req.body.city,
-      zip: req.body.zip,
-      prevAddresses: [],
-      socialSecurity: req.body.socialSecurity,
-      currentEmployer: req.body.currentEmployer,
-      currentMonthIncome: req.body.currentMonthIncome,
-      creditScore: req.body.creditScore
-    },function(err, user) {
-      err ? res.send(err) :
-      user.save( function() {
+    $set: updates
+  }, function(err, user) {
+    err ? res.send(err) :
+    user.save( () => {
+        console.log(user)
         res.json(user);
-      })
+      });
     })
-
-    })
+})
 
 
 
