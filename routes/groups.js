@@ -72,8 +72,7 @@ router.put('/:id/addUser', (req, res) => {
     user.save();
     Group.findById(req.params.id, function(err, group) {
       console.log(group.members);
-      group.members.push(user.groupId)
-      // group.memebers.push(user.groupId);
+      group.members.push(user.groupId);
       group.save()
     })
   }).then( function(data) {
