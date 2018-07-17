@@ -18,6 +18,9 @@ class Navbar extends Component {
         <Grid item xs={6} sm={3}>
         <a onClick={this.props.logout}>Log out</a>
         </Grid>
+        <Grid item xs={6} sm={3}>
+        <h1>MULTAPPLY</h1>
+        </Grid>
         </Grid>
       </div>
     )

@@ -9,8 +9,7 @@ import ListingForm from './ListingForm';
 import Profile from './Profile';
 import Listings from './Listings';
 import Groups from './Groups';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import HeroBanner from './HeroBanner';
 
 class App extends Component {
   constructor(props) {
@@ -70,20 +69,17 @@ class App extends Component {
     if (user) {
       return (
         <Router>
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Navbar logout={this.logout}/>
-              <h1>MULTAPPLY</h1>
-              <p>An application for applications</p>
-              <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
-              <Route path='/ListingForm' component={ListingForm} />
-              <Route path='/Profile' component={Profile}  />
-              <Route path='/Listings' component={Listings}  />
-              <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
-            </Grid>
-
+          <div>
+            <Navbar logout={this.logout}/>
+            <h1>MULTAPPLY</h1>
+            <p>An application for applications</p>
+            <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
+            <Route path='/ListingForm' component={ListingForm} />
+            <Route path='/Profile' component={() => <Profile user={user} />}  />
+            <Route path='/Listings' component={Listings}  />
+            <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
             <Footer />
-          </Grid>
+          </div>
         </Router>
       )  
     } else {
@@ -91,8 +87,8 @@ class App extends Component {
         <Router>
             <div>
               <Navbar liftTokenToState={this.liftTokenToState} logout={this.logout} />
-              <h1>MULTAPPLY</h1>
-              <p>An application for applications</p>
+                <HeroBanner />
+                {/* <LandingInfo /> */}
               <Footer />
               </div>
         </Router>
