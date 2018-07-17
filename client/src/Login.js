@@ -64,7 +64,6 @@ class Login extends Component {
     const { open } = this.state;
     return (
       <div>
-        <p>{(this.state.response) ? this.state.response.message : ''}</p>
         <button class='login-btn' onClick={this.onOpenLoginModal}>Login</button>
         <Modal open={open} onClose={this.onCloseLoginModal} center>
         <form onSubmit={this.handleSubmit}>

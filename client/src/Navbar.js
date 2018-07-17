@@ -17,17 +17,19 @@ const styles = {
 function Navbar(props) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
       <AppBar position="static" color="default">
-        <Toolbar>
-          <Typography variant="title" color="inherit">
-          <Login liftTokenToState={ props.liftTokenToState} />{` `}
-          <Signup liftTokenToState={props.liftTokenToState} />{` `}
-          <a onClick={props.logout}>Log out</a>{` `}
-          </Typography>
-        </Toolbar>
+          <Grid container justify='center' alignItems='center' alignContent='center'>
+              <Grid item xs={2}>
+                <Login liftTokenToState={ props.liftTokenToState} />
+              </Grid>
+              <Grid item xs={2}>
+                <Signup liftTokenToState={props.liftTokenToState} />
+              </Grid>
+              <Grid item xs={2}>
+                <a onClick={props.logout}>Log out</a>
+              </Grid>
+          </Grid>
       </AppBar>
-    </div>
   );
 }
 
