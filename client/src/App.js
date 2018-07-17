@@ -89,6 +89,7 @@ class App extends Component {
             <div>
               <Navbar liftTokenToState={this.liftTokenToState} logout={this.logout} />
                 <HeroBanner />
+                {/* <LandingInfo /> */}
               <Footer />
               </div>
         </Router>
