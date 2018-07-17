@@ -7,7 +7,7 @@ const User = require("../models/User");
 
 // GET /groups
 router.get('/', (req, res) => {
-  Groups.find({}, function(err, listings) {
+  Group.find({}, function(err, listings) {
     if (err) {
       console.log(err);
     } else {
