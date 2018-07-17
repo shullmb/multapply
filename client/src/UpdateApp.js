@@ -6,23 +6,23 @@ class UpdateApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name:'',
-      dateOfBirth:null,
-      phone:'',
-      street:'',
-      city:'',
-      state:'',
-      zip:'',
-      prevAddresses:'',
-      socialSecurity:'',
-      currentEmployer:'',
-      currentMonthIncome:'',
-      creditScore:'',
+      name: '',
+      dateOfBirth: null,
+      phone: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      socialSecurity: '',
+      currentEmployer: '',
+      currentMonthIncome: '',
+      creditScore: '',
       open: false
     }
     this.handleAppChange = this.handleAppChange.bind(this)
     this.onOpenAppModal = this.onOpenAppModal.bind(this)
     this.onCloseAppModal = this.onCloseAppModal.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onOpenAppModal = () => {
@@ -41,33 +41,20 @@ class UpdateApp extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.put(`/users/${this.props.user._id}`, {
-      name:this.state.name,     
-      dateOfBirth:this.state.dateOfBirth,
-      phone:this.state.phone,
-      street:this.state.street,
-      city:this.state.city,
-      state:this.state.state,
-      zip:this.state.zip,
-      prevAddresses:this.state.prevAddresses,
-      socialSecurity:this.state.socialSecurity,
-      currentEmployer:this.state.currentEmployer,
-      currentMonthIncome:this.state.currentMonthIncome,
-      creditScore:this.state.creditScore
-    }).then( result => {
-      if (result.data.hasOwnProperty('error')) {
-        // the response we got was an error
-        this.setState({
-          response: result.data
-        })
-      } else {
-        localStorage.setItem('mernToken', result.data.token)
-        this.props.liftTokenToState(result.data)
-        this.setState({
-          response: null,
-          open: false
-        })
+    let keys = Object.keys(this.state)
+    let stateObj = Object.create(this.state)
+    let updateObj = {};
+    keys.forEach( function(key) {
+      if (stateObj[key]) {
+        updateObj[key] = stateObj[key];
+        console.log(updateObj)
       }
+    })
+    axios.put(`/users/${this.props.user._id}`, updateObj).then( result => {
+      console.log(result);
+      this.setState({
+        open: false
+      })
     })
   }
 
@@ -75,7 +62,6 @@ class UpdateApp extends Component {
     const { open } = this.state;
     return (
       <div>
-        <p>{(this.state.response) ? this.state.response.message : ''}</p>
         <button class='app-btn' onClick={this.onOpenAppModal}>Update application</button>
         <Modal open={open} onClose={this.onCloseAppModal} center>
         <form onSubmit={this.handleSubmit}>
@@ -87,6 +73,7 @@ class UpdateApp extends Component {
           City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
           State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
           Zip: <input type='number' name="zip" value={this.state.zip} onChange={this.handleAppChange} /><br />
+          {/* REMOVE DUPLICATE FIELDS */}
           City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
           State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
           SSN: <input type='number' name="socialSecurity" value={this.state.socialSecurity} onChange={this.handleAppChange} /><br />

@@ -7,6 +7,7 @@ import UpdateApp from './UpdateApp';
 class Profile extends Component {
   
   render() {
+    const user = this.props.user;
     return (
       <div>
       <Grid container spacing={24}>
@@ -23,18 +24,21 @@ class Profile extends Component {
         </Grid>
         <Grid item xs={12}>
         <Paper>
-          Name: Human Person<br />
-          Date of birth: 05/23/1988<br />
-          Phone number: (555)-555-5555<br />
-          Current address: 12345 Place St, Seattle, WA 98107<br />
-          Previous address: 54321 Not Place St, Seattle, WA 98107<br />
-          SSN: *********<br />
-          Current employer: Beechers Cheese<br />
-          Monthly income: $3000<br />
-          Credit score: ***<br />
-          References: Your Mom<br />
+            <ul>
+              <li>{user.name}</li>
+              <li>{user.dateOfBirth}</li>
+              <li>{user.phone}</li>
+              <li>{user.street}</li>
+              <li>{user.city}</li>
+              <li>{user.state}</li>
+              <li>{user.zip}</li>
+              <li>{user.socialSecurity}</li>
+              <li>{user.currentEmployer}</li>
+              <li>{user.currentMonthIncome}</li>
+              <li>{user.creditScore}</li>
+            </ul>
         </Paper>
-        <UpdateApp />
+        <UpdateApp user={user} />
         </Grid>
       </Grid>
     </div>

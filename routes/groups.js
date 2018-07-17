@@ -33,6 +33,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Group.findOne({_id: req.params.id})
     .populate('listings')
+    .populate('users')
     .exec(
       function(err, group) {
         if (err) {
