@@ -30,11 +30,7 @@ const userSchema = new mongoose.Schema({
   currentEmployer: String,
   currentMonthIncome: Number,
   creditScore: {type: Number, min: 300, max: 850},
-<<<<<<< HEAD
-  groupId: { type: mongoose.Schema.Types.ObjectId, ref: 'Group'},
-=======
   groupId: { type: mongoose.Schema.Types.ObjectId, ref: 'Group' },
->>>>>>> dc3d04ad9f44a24fae14c8875beea785e2bf0cdc
   references: [referenceSchema], // Child of User
   isPropertyManager: Boolean,
   propertiesManaged: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Listing' }],
