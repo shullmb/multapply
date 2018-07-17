@@ -6,7 +6,11 @@ class GroupListing extends Component {
   render() {
     return(
       <div>
-        {this.props.listing}
+        <Grid item xs={12} sm={6} key={this.props.listing.title}>
+          <Paper>
+            {this.props.listing.title}
+          </Paper>
+        </Grid>
       </div>
     )
   }

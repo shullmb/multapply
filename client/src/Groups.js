@@ -40,13 +40,17 @@ class Groups extends Component {
         <h1>Hello, {this.props.user.name}!</h1>
         <h3>{this.state.groupName}</h3>
         <Grid container spacing={24}>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <h3>THIS BE YOUR GROUP</h3>
-            {members}
+            <Grid container spacing={24}>
+              {members}
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <h3>THESE BE YOUR FUTUREHOMES</h3>
-            {listings}
+            <Grid container spacing={24}>
+              {listings}
+            </Grid>
           </Grid>
         </Grid>
       </div>

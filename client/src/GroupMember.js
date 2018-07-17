@@ -6,7 +6,11 @@ class GroupMember extends Component {
   render() {
     return (
       <div>
-        {this.props.member}
+        <Grid item xs={12} sm={6} key={this.props.member._id}>
+          <Paper>
+            {this.props.member}
+          </Paper>
+        </Grid>
       </div>
     )
   }
