@@ -76,7 +76,7 @@ class App extends Component {
             <Route path='/ListingForm' component={ListingForm} />
             <Route path='/Profile' component={Profile}  />
             <Route path='/Listings' component={Listings}  />
-            <Route path='/Groups' component={Groups}  />
+            <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
 
             <Footer />
           </div>
