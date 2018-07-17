@@ -9,7 +9,7 @@ class Groups extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      group: null,
+      group: null
     }
     this.getGroupInformation = this.getGroupInformation.bind(this);
   }
@@ -18,7 +18,7 @@ class Groups extends Component {
     // let groupId = this.props.user.groupId;
     let groupId = "5b4e2a6c1d44d6859ee221af";
     axios.get(`/groups/${groupId}`).then( results => {
-      console.log(results)
+      console.log('AXIOS RESULTS:   ', results.data)
       this.setState({
         group: results.data
       })
@@ -30,23 +30,23 @@ class Groups extends Component {
   }
 
   render() {
-    console.log(this.state.group)
+    console.log('RENDER:  ',this.state)
     // const members = this.state.group ? this.state.group.members.map( member => <GroupMember user={member} /> ) : ''
-    const listings = this.state.group ? this.state.group.listings.map ( listing => <GroupListing listing={listing} />) : ''
-    const groupName = this.state.group ? this.state.group.name : ''
+    const listings = this.state.group.listings ? this.state.group.listings.map( (listing, i) => <GroupListing listing={listing} key={i} />) : ''
+    const groupName = this.state.group.name ? this.state.groupName : ''
     return (
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
-            <Paper><h3>THIS IS YOUR GROUP</h3></Paper>
+            <h3>These are your Roommates: </h3>
             <Grid container spacing={24}>
-              {/* {members} */}
+              {listings}
             </Grid>
           </Grid>
           <Grid item xs={12} sm={6}>
-          <Paper><h3>THESE ARE YOUR FUTUREHOMES</h3></Paper>
+            <h3>You have applied to these Properties</h3>
             <Grid container spacing={24}>
               {listings}
             </Grid>
