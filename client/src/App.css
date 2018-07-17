@@ -1,3 +1,9 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .login-btn, .signup-btn {
   background: none!important;
   color: inherit;
@@ -5,6 +11,18 @@
   padding: 0!important;
   font: inherit;
   cursor: pointer;
+}
+
+.hero-image {
+  height: 60%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2 {
+  text-align: center;
 }
 
 

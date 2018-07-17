@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 const User = require("../models/User");
 
 
-
+// GET /users -- 
+router.get('/', (req, res) => {
+  User.find({}, function(err, users) {
+    err ? res.send(err) : res.json(users);
+  })
+})
 
 // PUT /users/:id
 router.put('/:id', (req, res) => {
@@ -12,7 +17,7 @@ router.put('/:id', (req, res) => {
   let updates = req.body;
   User.findByIdAndUpdate(req.params.id, {
     $set: updates
-  }, function(err, user) {
+  }, {new: true}, function(err, user) {
     err ? res.send(err) :
     user.save( () => {
         console.log(user)
@@ -21,7 +26,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
-
+// DELETE /users/:id
 router.delete('/:id', (req, res) => {
     User.remove({_id: req.params.id}, function(err) {
       console.log(err);

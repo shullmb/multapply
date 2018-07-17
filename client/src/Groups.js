@@ -9,21 +9,18 @@ class Groups extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      groupName: '',
-      members: [],
-      listings: [],
+      group: null
     }
     this.getGroupInformation = this.getGroupInformation.bind(this);
   }
 
   getGroupInformation() {
     // let groupId = this.props.user.groupId;
-    let groupId = "5b4d04919ba0160471adef24";
+    let groupId = "5b4e2a6c1d44d6859ee221af";
     axios.get(`/groups/${groupId}`).then( results => {
+      console.log('AXIOS RESULTS:   ', results.data)
       this.setState({
-        groupName: results.data.name,
-        members: results.data.members,
-        listings: results.data.listings
+        group: results.data
       })
     })
   }
@@ -33,21 +30,23 @@ class Groups extends Component {
   }
 
   render() {
-    const members = this.state.members.map( member => <GroupMember user={member} /> )
-    const listings = this.state.listings.map ( listing => <GroupListing listing={listing} />)
+    console.log('RENDER:  ',this.state)
+    // const members = this.state.group ? this.state.group.members.map( member => <GroupMember user={member} /> ) : ''
+    const listings = this.state.group.listings ? this.state.group.listings.map( (listing, i) => <GroupListing listing={listing} key={i} />) : ''
+    const groupName = this.state.group.name ? this.state.groupName : ''
     return (
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
-        <h3>{this.state.groupName}</h3>
+        <h2>{groupName}</h2>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
-            <h3>THIS BE YOUR GROUP</h3>
+            <h3>These are your Roommates: </h3>
             <Grid container spacing={24}>
-              {members}
+              {listings}
             </Grid>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <h3>THESE BE YOUR FUTUREHOMES</h3>
+            <h3>You have applied to these Properties</h3>
             <Grid container spacing={24}>
               {listings}
             </Grid>

@@ -6,7 +6,18 @@ class UpdateApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      bio: '',  //needs edits
+      name:'',
+      dateOfBirth:null,
+      phone:'',
+      street:'',
+      city:'',
+      state:'',
+      zip:'',
+      prevAddresses:'',
+      socialSecurity:'',
+      currentEmployer:'',
+      currentMonthIncome:'',
+      creditScore:'',
       open: false
     }
     this.handleAppChange = this.handleAppChange.bind(this)
@@ -24,15 +35,25 @@ class UpdateApp extends Component {
 
   handleAppChange(e) {
     this.setState({
-      bio: e.target.value //needs edits
+      [e.target.name]: e.target.value
     })
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/users/app', {
-      bio: this.state.bio
-      /// above line needs to be corrected to update app information
+    axios.put(`/users/${this.props.user._id}`, {
+      name:this.state.name,     
+      dateOfBirth:this.state.dateOfBirth,
+      phone:this.state.phone,
+      street:this.state.street,
+      city:this.state.city,
+      state:this.state.state,
+      zip:this.state.zip,
+      prevAddresses:this.state.prevAddresses,
+      socialSecurity:this.state.socialSecurity,
+      currentEmployer:this.state.currentEmployer,
+      currentMonthIncome:this.state.currentMonthIncome,
+      creditScore:this.state.creditScore
     }).then( result => {
       if (result.data.hasOwnProperty('error')) {
         // the response we got was an error
@@ -58,22 +79,20 @@ class UpdateApp extends Component {
         <button class='app-btn' onClick={this.onOpenAppModal}>Update application</button>
         <Modal open={open} onClose={this.onCloseAppModal} center>
         <form onSubmit={this.handleSubmit}>
-          Name: <input type='name' value={this.state.name} onChange={this.handleAppChange} /><br />
-          Date of birth: <input type='name' placeholder="mm/dd/yyyy"value={this.state.dateOfBirth} onChange={this.handleAppChange} /><br />
-          Phone number: <input type='name' value={this.state.phone} onChange={this.handleAppChange} /><br />
+          Name: <input type='text' name="name" value={this.state.name} onChange={this.handleAppChange} /><br />
+          Date of birth: <input type='date' name="dateOfBirth" value={this.state.dateOfBirth} onChange={this.handleAppChange} /><br />
+          Phone number: <input type='number' name="phone" value={this.state.phone} onChange={this.handleAppChange} /><br />
           Current address:
-          Street: <input type='text' value={this.state.street} onChange={this.handleAppChange} /><br />
-          City: <input type='text' value={this.state.city} onChange={this.handleAppChange} /><br />
-          State: <input type='text' value={this.state.state} onChange={this.handleAppChange} /><br />
-          Zip: <input type='number' value={this.state.zip} onChange={this.handleAppChange} /><br />
-          City: <input type='text' value={this.state.city} onChange={this.handleAppChange} /><br />
-          State: <input type='text' value={this.state.state} onChange={this.handleAppChange} /><br />
-          Previous address: <input type='text' value={this.state.prevAddresses} onChange={this.handleAppChange} /><br />
-          SSN: <input type='number' value={this.state.socialSecurity} onChange={this.handleAppChange} /><br />
-          Current employer:<input type='name' value={this.state.currentEmployer} onChange={this.handleAppChange} /><br />
-          Current monthly income:<input type='number' value={this.state.currentMonthIncome} onChange={this.handleAppChange} /><br />
-          Credit score:<input type='number' value={this.state.creditScore} onChange={this.handleAppChange} /><br />
-          References:<input type='text' value={this.state.references} onChange={this.handleAppChange} /><br />
+          Street: <input type='text' name="street" value={this.state.street} onChange={this.handleAppChange} /><br />
+          City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
+          State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
+          Zip: <input type='number' name="zip" value={this.state.zip} onChange={this.handleAppChange} /><br />
+          City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
+          State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
+          SSN: <input type='number' name="socialSecurity" value={this.state.socialSecurity} onChange={this.handleAppChange} /><br />
+          Current employer:<input type='text' name="currentEmployer" value={this.state.currentEmployer} onChange={this.handleAppChange} /><br />
+          Current monthly income:<input type='number' name="currentMonthIncome" value={this.state.currentMonthIncome} onChange={this.handleAppChange} /><br />
+          Credit score:<input type='number' name="creditScore" value={this.state.creditScore} onChange={this.handleAppChange} /><br />
           <input type='submit' value='Update' />
         </form>
         </Modal>
