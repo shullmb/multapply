@@ -41,6 +41,7 @@ class UpdateApp extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    // magic to stop empty strings from overwriting user data!
     let keys = Object.keys(this.state)
     let stateObj = Object.create(this.state)
     let updateObj = {};
@@ -50,6 +51,7 @@ class UpdateApp extends Component {
         console.log(updateObj)
       }
     })
+    // end of magic
     axios.put(`/users/${this.props.user._id}`, updateObj).then( result => {
       console.log(result);
       this.setState({
