@@ -8,7 +8,7 @@ class GroupListing extends Component {
       <div>
         <Grid item xs={12} sm={6}>
           <Paper>
-            {this.props.listing}
+            {this.props.listing.title}
           </Paper>
         </Grid>
       </div>
