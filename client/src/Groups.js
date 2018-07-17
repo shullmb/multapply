@@ -37,16 +37,16 @@ class Groups extends Component {
     return (
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
-        <h3>{groupName}</h3>
+        <h2>{groupName}</h2>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
-            <h3>THIS IS YOUR GROUP</h3>
+            <Paper><h3>THIS IS YOUR GROUP</h3></Paper>
             <Grid container spacing={24}>
               {/* {members} */}
             </Grid>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <h3>THESE ARE YOUR FUTUREHOMES</h3>
+          <Paper><h3>THESE ARE YOUR FUTUREHOMES</h3></Paper>
             <Grid container spacing={24}>
               {listings}
             </Grid>
