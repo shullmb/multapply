@@ -57,18 +57,21 @@ router.get('/:id', (req, res) => {
 
 // PUT /listings/:id/apply
 router.put('/:id/apply', (req, res) => {
-  let testGroup = {_id: "5b4d04919ba0160471adef24", name: "TEST GROUP" }
-  Group.findOne({_id: testGroup._id }, function(err, group) {
-    group.listings.push(group.id);
-    group.save();
-    Listing.findById(req.params.id, function(err, listing) {
-      console.log(listing, group.id);
-      listing.applicants.push(group.id);
-      listing.save()
+  let testGroup = { _id: "5b4e2a6c1d44d6859ee221af" }
+  Group.findOne({_id: testGroup._id })
+    .populate('listings')
+    .exec(function (err, group) {
+      // console.log(group);
+      group.listings.push(req.params.id);
+      group.save();
+      Listing.findById(req.params.id, function (err, listing) {
+        console.log(listing);
+        listing.applicants.push(group._id);
+        listing.save();
+        console.log(group);
+        res.sendStatus(200);
+      })
     })
-  }).then( function(data) {
-    res.sendStatus(200);
-  });
 })
 
 // PUT /listings/:id
@@ -77,12 +80,9 @@ router.put('/:id', (req, res) => {
   let updates = req.body;
   Listing.findByIdAndUpdate(req.params.id, {
     $set: updates
-  }, function(err, listing) {
+  }, {new: true}, function(err, listing) {
     err ? res.send(err) :
-    listing.save( () => {
-        console.log(listing)
-        res.json(listing);
-      });
+    res.json(listing);
     })
 })
 

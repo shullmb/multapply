@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Group = require("../models/group");
-const User = require("../models/User")
+const User = require("../models/User");
+const Listing = require("../models/listing");
 
 
 // GET /groups
@@ -30,13 +31,16 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  Group.findById(req.params.id, function(err, group) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(group)
-    }
-  })
+  Group.findOne({_id: req.params.id})
+    .populate('listings')
+    .exec(
+      function(err, group) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.json(group)
+        }
+      })
 })
 
 

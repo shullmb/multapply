@@ -9,6 +9,7 @@ import ListingForm from './ListingForm';
 import Profile from './Profile';
 import Listings from './Listings';
 import Groups from './Groups';
+import HeroBanner from './HeroBanner';
 
 class App extends Component {
   constructor(props) {
@@ -74,10 +75,9 @@ class App extends Component {
             <p>An application for applications</p>
             <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
             <Route path='/ListingForm' component={ListingForm} />
-            <Route path='/Profile' component={Profile}  />
+            <Route path='/Profile' component={() => <Profile user={user} />}  />
             <Route path='/Listings' component={Listings}  />
             <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
-
             <Footer />
           </div>
         </Router>
@@ -87,8 +87,8 @@ class App extends Component {
         <Router>
             <div>
               <Navbar liftTokenToState={this.liftTokenToState} logout={this.logout} />
-              <h1>MULTAPPLY</h1>
-              <p>An application for applications</p>
+                <HeroBanner />
+                {/* <LandingInfo /> */}
               <Footer />
               </div>
         </Router>
