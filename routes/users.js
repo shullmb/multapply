@@ -12,7 +12,7 @@ router.put('/:id', (req, res) => {
   let updates = req.body;
   User.findByIdAndUpdate(req.params.id, {
     $set: updates
-  }, function(err, user) {
+  }, {new: true}, function(err, user) {
     err ? res.send(err) :
     user.save( () => {
         console.log(user)

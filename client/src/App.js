@@ -78,7 +78,6 @@ class App extends Component {
             <Route path='/Profile' component={() => <Profile user={user} />}  />
             <Route path='/Listings' component={Listings}  />
             <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
-
             <Footer />
           </div>
         </Router>
