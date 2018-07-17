@@ -30,7 +30,7 @@ class UpdateBio extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/users/bio', {
+    axios.put(`/users/${this.props.user._id}`, {
       bio: this.state.bio
     }).then( result => {
       if (result.data.hasOwnProperty('error')) {

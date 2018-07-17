@@ -11,7 +11,7 @@ class Dashboard extends Component {
       <div>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <h1>DASHBOARD</h1>
+          <h2>DASHBOARD</h2>
         </Grid>
         <Grid item xs={12} sm={6}>
           <img src="../img/smiley.png" /><br />
