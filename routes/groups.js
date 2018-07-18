@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Group.findOne({_id: req.params.id})
     .populate('listings')
-    .populate('users')
+    .populate('members')
     .exec(
       function(err, group) {
         if (err) {
@@ -68,7 +68,7 @@ router.delete('/:id', (req, res) => {
   });
 
 //TODO: wire up add button
-router.post('/:id/addUser', (req, res) => {
+router.put('/:id/addUser', (req, res) => {
   console.log('🔥 🔥 ADDING USER TO GROUP🔥 🔥 ')
   let groupId = req.body.groupId
   User.findOne({_id: req.body.userId }, function(err, user) {
