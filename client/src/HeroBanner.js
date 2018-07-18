@@ -14,16 +14,20 @@ class HeroBanner extends Component {
           </div>
             </Grid>
             <Grid item xs={6}>
-            <img class="rental-pic" src="https://www.fillmurray.com/200/300" />
+            <img class="rental-pic" src="../img/rental-pic.jpg" />
             </Grid>
             <Grid item xs={6}>
-              <p>Renter blurb, and whatnots, more words or whatever</p>
+              <p>Renters can fill out their standard application and submit it to properties with ease. Roommates can create
+                groups and apply together, rather than individually, saving you time and frustration.
+              </p>
             </Grid>
             <Grid item xs={6}>
-            <p>Property manager blurb and stuff, lots of words yo</p>
+            <p>Property managers can post listings and view groups of applicants, avoiding the pain 
+              of running credit checks and looking over multiple applications. 
+            </p>
                 </Grid>
                 <Grid item xs={6}>
-            <img class="prop-man-pic" src="https://www.fillmurray.com/200/300" />
+            <img class="prop-man-pic" src="../img/prop-man-pic.jpg" />
             </Grid>
             </Grid>
       </div>
