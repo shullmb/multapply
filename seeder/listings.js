@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/multapplyDev');
-var User = require('../models/listing');
+var Listing = require('../models/listing');
 //We require mongoose.
 //We connect to the local host under jwt so the different users can access different seeds.
 //We require the model, so the data is populated in the db.
@@ -217,7 +217,7 @@ const listingSeeder = [
 
 //Use the insertMany function to seed to the db.
 //This must be run in node.
-User.insertMany(listingSeeder, (err, docs) => {
+Listing.insertMany(listingSeeder, (err, docs) => {
   console.log(err);
   console.log(docs);
 })
