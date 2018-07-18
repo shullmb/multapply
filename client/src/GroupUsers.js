@@ -3,8 +3,9 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import GroupUser from './GroupUser';
 
-class Users extends Component {
+class GroupUsers extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -26,7 +27,7 @@ class Users extends Component {
   }
 
   render() {
-    let allUsers = this.state.allUsers ? this.state.allUsers.map( user => <p>{user.name}</p>) : ''
+    let allUsers = this.state.allUsers ? this.state.allUsers.map( userToAdd => <GroupUser user={this.props.user} groupId={this.props.user.groupId} userToAdd={userToAdd} key={`${userToAdd._id}`} />) : ''
     return (
       <div>
         {allUsers}
@@ -35,4 +36,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default GroupUsers;

@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
   })
 })
 
+// POST /groups
+// TODO: ADD groupId to user when Group created
 router.post('/', (req, res) => {
   console.log('post route')
   Group.create(
@@ -65,15 +67,19 @@ router.delete('/:id', (req, res) => {
     res.sendStatus(200);
   });
 
-router.put('/:id/addUser', (req, res) => {
-  let testUser = {_id: "5b4d0dd2e2fbeb62e8b4ad9c", name: "TEST USER" }
-  User.findOne({_id: testUser._id }, function(err, user) {
-    user.groupId = user.id;
+//TODO: wire up add button
+router.post('/:id/addUser', (req, res) => {
+  console.log('🔥 🔥 ADDING USER TO GROUP🔥 🔥 ')
+  let groupId = req.body.groupId
+  User.findOne({_id: req.body.userId }, function(err, user) {
+    user.groupId = groupId // this should be a group id --- req.params.id? 
+    //circular ref? 
+    //TODO: to resolve see ln 21
     console.log(user.groupId)
     user.save();
     Group.findById(req.params.id, function(err, group) {
       console.log(group.members);
-      group.members.push(user.groupId);
+      group.members.push(user.id);
       group.save()
     })
   }).then( function(data) {
