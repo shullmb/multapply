@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import GroupMember from './GroupMember';
 import GroupListing from './GroupListing';
+import SearchUsers from './SearchUsers';
 
 class Groups extends Component {
   constructor(props) {
@@ -38,20 +39,32 @@ class Groups extends Component {
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
+        <Grid container justify='center' alignItems='center' alignContent='center'>
+              <Grid item xs={2}>
+              <SearchUsers />
+              </Grid>
+              </Grid>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
+<<<<<<< HEAD
+            <Paper><h3>THIS IS YOUR GROUP</h3></Paper>
+              {/* {members} */}
+=======
             <h3>These are your Roommates: </h3>
             <Grid container spacing={24}>
               {listings}
+>>>>>>> 448d17fcbb5512148a71bd775f24a58b6f398d15
             </Grid>
-          </Grid>
           <Grid item xs={12} sm={6}>
+<<<<<<< HEAD
+          <Paper><h3>THESE ARE YOUR FUTUREHOMES</h3></Paper>
+=======
             <h3>You have applied to these Properties</h3>
             <Grid container spacing={24}>
+>>>>>>> 448d17fcbb5512148a71bd775f24a58b6f398d15
               {listings}
             </Grid>
           </Grid>
-        </Grid>
       </div>
     )
   }
