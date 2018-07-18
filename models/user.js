@@ -55,6 +55,7 @@ userSchema.set('toObject', {
       currentEmloyer: ret.currentEmloyer,
       currentMonthIncome: ret.currentMonthIncome,
       creditScore: ret.creditScore,
+      groupId: ret.groupId,
       references: ret.references,
       isPropertyManager: ret.isPropertyManager,
       propertiesManaged: ret.propertiesManaged

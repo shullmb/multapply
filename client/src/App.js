@@ -10,6 +10,8 @@ import Profile from './Profile';
 import Listings from './Listings';
 import Groups from './Groups';
 import HeroBanner from './HeroBanner';
+import GroupUsers from './GroupUsers';
+import GroupUser from './GroupUser';
 
 class App extends Component {
   constructor(props) {
@@ -73,11 +75,12 @@ class App extends Component {
             <Navbar logout={this.logout}/>
             <h1>MULTAPPLY</h1>
             <p>An application for applications</p>
-            <Route path='/Dashboard' component={() => <Dashboard user={user} /> }  />
+            <Route path='/Dashboard' component={() => <Dashboard user={user} />} />
             <Route path='/ListingForm' component={ListingForm} />
-            <Route path='/Profile' component={() => <Profile user={user} />}  />
-            <Route path='/Listings' component={Listings}  />
-            <Route path='/Groups' component={() => <Groups user={this.state.user} />}  />
+            <Route path='/Profile' component={() => <Profile user={user} />} />
+            <Route path='/Listings' component={Listings} />
+            <Route path='/Groups' component={() => <Groups user={user} />} />
+            <Route path='/GroupUsers' component={(props) => <GroupUsers user={user} {...props}/>} />
             <Footer />
           </div>
         </Router>
