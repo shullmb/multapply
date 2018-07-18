@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "material-ui": "^0.20.1",
     "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "^2.22.2",
     "muicss": "^0.9.39",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

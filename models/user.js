@@ -55,7 +55,7 @@ userSchema.set('toObject', {
       zip: ret.zip,
       prevAddresses: ret.prevAddresses,
       socialSecurity: ret.socialSecurity,
-      currentEmloyer: ret.currentEmloyer,
+      currentEmployer: ret.currentEmployer,
       currentMonthIncome: ret.currentMonthIncome,
       creditScore: ret.creditScore,
       groupId: ret.groupId,

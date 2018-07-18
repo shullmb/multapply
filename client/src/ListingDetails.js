@@ -44,7 +44,7 @@ class ListingDetails extends Component {
               <p>{listing.bedrooms} Bedrooms</p>
               <p>{listing.bathrooms} Bathrooms</p>
               <p>{listing.sqFeet}</p>
-              <h4>Pets: dogs: {listing.dogs ? "🐶" : "☹️"} cats: {listing.cats ? "🐱" : "☹️"} other: {listing.otherPets ? "OK" : "☹️"}</h4>
+              <h4>Pets Allowed: {listing.dogs ? " 🐶 " : ''} {listing.cats ? " 🐱 " : ''}  {listing.otherPets ? " 🐌 " : ''}</h4>
             </Paper>
           </Grid>
         </Modal>
