@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
     sqFeet: req.body.sqFeet,
     dogs: req.body.dogs, 
     cats: req.body.cats, 
-    otherPets: req.body.other,
+    otherPets: req.body.otherPets,
     applicants: []
   }, function(err, listing) {
     if (err) {

@@ -17,8 +17,7 @@ class Groups extends Component {
   }
 
   getGroupInformation() {
-    // let groupId = this.props.user.groupId;
-    let groupId = "5b4e2a6c1d44d6859ee221af";
+    let groupId = this.props.user.groupId;
     axios.get(`/groups/${groupId}`).then( results => {
       console.log('AXIOS RESULTS:   ', results.data)
       this.setState({
@@ -41,7 +40,13 @@ class Groups extends Component {
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
         <Button variant="outlined" color="primary"> 
+          <Link to='/AddGroup'>Create Your Group</Link>
+        </Button>
+        <Button variant="outlined" color="primary"> 
           <Link to='/GroupUsers'>Add a Roommate</Link>
+        </Button>
+        <Button variant="outlined" color="primary"> 
+          <Link to='/EditGroup'>Edit Your Group</Link>
         </Button>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
