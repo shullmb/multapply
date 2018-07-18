@@ -2,7 +2,7 @@ body, html {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  background-color: #2F4858;
+  background-color: #7B8087;
 }
 
 .login-btn, .signup-btn {
@@ -51,7 +51,7 @@ h3 {
 }
 
 p {
-  color: #D9DDE0;
+  color: #454E5A;
   font-size: 2vh;
 }
 
@@ -93,7 +93,7 @@ p {
 
 .footer, .navbar {
   height: 20px;
-  background: #2F4858;
+  background: #5F666F;
   font-size: 2vh;
 }
 
@@ -120,6 +120,7 @@ a {
 ul {
   list-style-type: none;
 }
+
 
 
 
