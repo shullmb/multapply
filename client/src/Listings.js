@@ -27,7 +27,8 @@ componentDidMount() {
 }
 
 render() {
-  const listings = this.state.listings ? this.state.listings.map( listing => <Listing listing={listing} />) : '';
+  const listings = this.state.listings ? this.state.listings.map( listing => <Listing listing={listing} group={this.props.user.groupId}/>) : '';
+  console.log("🔥🔥 GROUP ID", this.props.user.groupId)
   return (
     <div>
       <Grid container spacing={24}>

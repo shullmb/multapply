@@ -57,11 +57,11 @@ router.get('/:id', (req, res) => {
 
 // PUT /listings/:id/apply
 router.put('/:id/apply', (req, res) => {
-  let testGroup = { _id: "5b4e2a6c1d44d6859ee221af" }
-  Group.findOne({_id: testGroup._id })
-    .populate('listings')
-    .exec(function (err, group) {
-      // console.log(group);
+  console.log('🔥🔥🔥 applying for listing 🔥🔥🔥')
+  Group.findOne({_id: req.body.groupId }, 
+    function (err, group) {
+      console.log(group)
+      if (err) { console.log(err) }
       group.listings.push(req.params.id);
       group.save();
       Listing.findById(req.params.id, function (err, listing) {
