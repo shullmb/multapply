@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import GroupMember from './GroupMember';
 import GroupListing from './GroupListing';
+import GroupAppSummary from './GroupAppSummary';
 
 class Groups extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Groups extends Component {
     const members = this.state.group ? this.state.group.members.map( (member, i) => <GroupMember member={member} /> ) : ''
     const listings = this.state.group ? this.state.group.listings.map( (listing, i) => <GroupListing listing={listing} key={i} />) : ''
     const groupName = this.state.group ? this.state.groupName : ''
+    const groupSummary = this.state.group ? this.state.group.members : ''
     return (
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
@@ -48,9 +50,7 @@ class Groups extends Component {
         <Button variant="outlined" color="primary"> 
           <Link to='/EditGroup'>Edit Your Group</Link>
         </Button>
-        <Button variant="outlined" color="primary">
-          <a >See Group Application Summary</a>
-        </Button>
+        <GroupAppSummary group={groupSummary} />
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
             <h3>These are your Roommates: </h3>
