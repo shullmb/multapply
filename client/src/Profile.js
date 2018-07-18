@@ -8,6 +8,7 @@ class Profile extends Component {
   
   render() {
     const user = this.props.user;
+    console.log(user)
     return (
       <div>
       <Grid container spacing={24}>
@@ -32,7 +33,7 @@ class Profile extends Component {
               <li>{user.city}</li>
               <li>{user.state}</li>
               <li>{user.zip}</li>
-              <li>{user.socialSecurity}</li>
+              <li>{user.socialSecurity ? "🤫🤫🤫-🤫🤫-" + user.socialSecurity.toString().split('').splice(5,4).join('') : ''}</li>
               <li>{user.currentEmployer}</li>
               <li>{user.currentMonthIncome}</li>
               <li>{user.creditScore}</li>
