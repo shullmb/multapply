@@ -48,15 +48,15 @@ class UpdateApp extends Component {
     keys.forEach( function(key) {
       if (stateObj[key]) {
         updateObj[key] = stateObj[key];
-        console.log(updateObj)
       }
     })
     // end of magic
     axios.put(`/users/${this.props.user._id}`, updateObj).then( result => {
-      console.log(result);
       this.setState({
         open: false
       })
+      //trigger rerender of Profile component
+      this.props.refresh()
     })
   }
 

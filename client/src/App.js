@@ -77,7 +77,7 @@ class App extends Component {
             <p>An application for applications</p>
             <Route path='/Dashboard' component={() => <Dashboard user={user} />} />
             <Route path='/ListingForm' component={ListingForm} />
-            <Route path='/Profile' component={() => <Profile user={user} />} />
+            <Route path='/Profile' component={() => <Profile user={user} refresh={this.checkForLocalToken} />} />
             <Route path='/Listings' component={() => <Listings user={user} />} />
             <Route path='/Groups' component={() => <Groups user={user} />} />
             <Route path='/GroupUsers' component={(props) => <GroupUsers user={user} {...props} />} />

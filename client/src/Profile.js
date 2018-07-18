@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import moment from 'moment';
 import UpdateBio from './UpdateBio';
 import UpdateApp from './UpdateApp';
 
 class Profile extends Component {
-  
   render() {
     const user = this.props.user;
     console.log(user)
@@ -27,7 +27,7 @@ class Profile extends Component {
         <Paper>
             <ul>
               <li>{user.name}</li>
-              <li>{user.dateOfBirth}</li>
+              <li>{moment(user.dateOfBirth).format("MMMM Do YYYY")}</li>
               <li>{user.phone}</li>
               <li>{user.street}</li>
               <li>{user.city}</li>
@@ -39,7 +39,7 @@ class Profile extends Component {
               <li>{user.creditScore}</li>
             </ul>
         </Paper>
-        <UpdateApp user={user} />
+        <UpdateApp user={user} refresh={this.props.refresh} />
         </Grid>
       </Grid>
     </div>
