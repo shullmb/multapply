@@ -1,7 +1,7 @@
 # multapply
 An application for applications
 
-##Application Summary
+## Application Summary
 
 Finding a place is a pain and finding good renters is equally as painful. That's
 when Multapply comes to the rescue. This application allows roommates to submit
@@ -10,7 +10,7 @@ writers cramp with multiple forms. Property managers can easily review a
 larger volumes of rental applications, as they are easily organized and readable.
 
 
-##Tech Used
+## Tech Used
 
 * Framework:
   * React JS
@@ -27,8 +27,12 @@ larger volumes of rental applications, as they are easily organized and readable
   * React Router Dom
 
 
-##Planning
+## Planning
 
 Our process for planning consisted of creating wire frames and mapping them to
-our user stories. As seen below, our wire frames were used to create a flow and
-then we were able to build 
+our user stories. As seen below, our wire frames were used to create a flow that
+helped us define our routes.
+
+![Wire frame](/client/public/img/wire_frame.png)
+
+We used trello to define our 
