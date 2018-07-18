@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import GroupMember from './GroupMember';
 import GroupListing from './GroupListing';
+import SearchUsers from './SearchUsers';
 
 class Groups extends Component {
   constructor(props) {
@@ -47,16 +48,15 @@ class Groups extends Component {
           <Grid item xs={12} sm={6}>
             <h3>These are your Roommates: </h3>
             <Grid container spacing={24}>
+
               {members}
             </Grid>
-          </Grid>
           <Grid item xs={12} sm={6}>
             <h3>You have applied to these Properties</h3>
             <Grid container spacing={24}>
               {listings}
             </Grid>
           </Grid>
-        </Grid>
       </div>
     )
   }
