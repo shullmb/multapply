@@ -26,8 +26,42 @@ h2 {
 }
 
 .prop-man-pic, .rental-pic {
-  height: 100%;
-  width: 100%;
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+}
+
+.prop-man-pic {
+  margin-right: 2em;
+}
+
+.rental-pic {
+  margin-left: 2em;
+}
+
+.hero-blurb {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  font-size: 4vh;
+}
+
+.footer {
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background: white;
+  margin-top: 4em;
+}
+
+.footer, .navbar {
+  height: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 

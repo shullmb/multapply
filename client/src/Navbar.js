@@ -5,8 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 const styles = {
   root: {
@@ -17,7 +15,7 @@ const styles = {
 function Navbar(props) {
   const { classes } = props;
   return (
-      <AppBar position="static" color="default">
+      <AppBar class="navbar" position="static" color="default">
           <Grid container justify='center' alignItems='center' alignContent='center'>
               <Grid item xs={2}>
                 <Login liftTokenToState={ props.liftTokenToState} />
