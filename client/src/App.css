@@ -2,11 +2,12 @@ body, html {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+  background-color: #2F4858;
 }
 
 .login-btn, .signup-btn {
   background: none!important;
-  color: inherit;
+  color: #F6AE2D;
   border: none; 
   padding: 0!important;
   font: inherit;
@@ -21,8 +22,41 @@ body, html {
   background-size: cover;
 }
 
+.profile-pic {
+
+  margin-left: 4em;
+}
+
+.profile-pixxx {
+  max-width: 75%;
+    height: auto;
+    width: auto\9; /* ie8 */
+  border-radius: 50%;
+}
+
+.update-profile {
+  margin-left: 4em;
+}
+
+.landing-header {
+  text-align: center;
+}
+
+h1 {
+  color: #F26419;
+}
 h2 {
   text-align: center;
+  color: #C7D5DF;
+}
+
+h3 {
+  color: #C7D5DF;
+}
+
+p {
+  color: #D9DDE0;
+  font-size: 2vh;
 }
 
 .prop-man-pic, .rental-pic {
@@ -43,26 +77,30 @@ h2 {
   width: 50%;
   text-align: center;
   margin: auto;
-  font-size: 4vh;
+  font-size: 3vh;
 }
 
 .footer {
   left:0px;
   bottom:0px;
-  height:30px;
   width:100%;
-  background: white;
-  margin-top: 4em;
+  position: fixed;
+}
+
+.navbar {
+  text-align: center;
 }
 
 .footer, .navbar {
-  height: 30px;
+  height: 20px;
+  background: #2F4858;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #F6AE2D;
 }
+
 
 
 
