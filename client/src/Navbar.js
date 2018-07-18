@@ -2,29 +2,39 @@ import React, { Component } from 'react';
 import Signup from './Signup';
 import Login from './Login';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-class Navbar extends Component {
-  
-  render() {
-    return (
-      <div>
-        <Grid container spacing={24}>
-        <Grid item xs={6} sm={3}>
-        <Login liftTokenToState={ this.props.liftTokenToState} />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-        <Signup liftTokenToState={this.props.liftTokenToState} />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-        <a onClick={this.props.logout}>Log out</a>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-        <h1>MULTAPPLY</h1>
-        </Grid>
-        </Grid>
-      </div>
-    )
-  }
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+};
+
+function Navbar(props) {
+  const { classes } = props;
+  return (
+      <AppBar position="static" color="default">
+          <Grid container justify='center' alignItems='center' alignContent='center'>
+              <Grid item xs={2}>
+                <Login liftTokenToState={ props.liftTokenToState} />
+              </Grid>
+              <Grid item xs={2}>
+                <Signup liftTokenToState={props.liftTokenToState} />
+              </Grid>
+              <Grid item xs={2}>
+                <a onClick={props.logout}>Log out</a>
+              </Grid>
+          </Grid>
+      </AppBar>
+  );
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Navbar);

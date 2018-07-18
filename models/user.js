@@ -9,8 +9,8 @@ const prevAddressSchema = new mongoose.Schema({
 })
 
 const referenceSchema = new mongoose.Schema({
-  name: String, 
-  phone: Number, 
+  name: String,
+  phone: Number,
   email: String
 })
 
@@ -19,11 +19,11 @@ const userSchema = new mongoose.Schema({
   email: {type: String, required: false},
   password: {type: String, required: false},
   bio: String,
-  dateOfBirth: Date, 
+  dateOfBirth: Date,
   phone: Number,
-  street: String, 
-  city: String, 
-  state: String, 
+  street: String,
+  city: String,
+  state: String,
   zip: Number,
   prevAddresses: [prevAddressSchema], // Child of User
   socialSecurity: Number,
@@ -63,7 +63,7 @@ userSchema.set('toObject', {
   }
 })
 
-// checks password input against hashed password - returns boolean 
+// checks password input against hashed password - returns boolean
 userSchema.methods.authenticated = function (password) {
   return bcrypt.compareSync(password, this.password);
 }
