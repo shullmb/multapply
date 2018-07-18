@@ -39,7 +39,7 @@ class Groups extends Component {
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
-        <Button variant="outlined" color="primary"> 
+        <Button variant="outlined" color="primary" onClick={this.props.refresh}> 
           <Link to='/AddGroup'>Create Your Group</Link>
         </Button>
         <Button variant="outlined" color="primary"> 
@@ -47,6 +47,9 @@ class Groups extends Component {
         </Button>
         <Button variant="outlined" color="primary"> 
           <Link to='/EditGroup'>Edit Your Group</Link>
+        </Button>
+        <Button variant="outlined" color="primary">
+          <a >See Group Application Summary</a>
         </Button>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
