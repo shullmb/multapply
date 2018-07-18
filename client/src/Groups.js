@@ -6,7 +6,6 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import GroupMember from './GroupMember';
 import GroupListing from './GroupListing';
-import SearchUsers from './SearchUsers';
 
 class Groups extends Component {
   constructor(props) {
