@@ -11,7 +11,7 @@ import Listings from './Listings';
 import Groups from './Groups';
 import HeroBanner from './HeroBanner';
 import GroupUsers from './GroupUsers';
-import GroupUser from './GroupUser';
+import GroupAdd from './GroupAdd';
 
 class App extends Component {
   constructor(props) {
@@ -80,7 +80,8 @@ class App extends Component {
             <Route path='/Profile' component={() => <Profile user={user} />} />
             <Route path='/Listings' component={Listings} />
             <Route path='/Groups' component={() => <Groups user={user} />} />
-            <Route path='/GroupUsers' component={(props) => <GroupUsers user={user} {...props}/>} />
+            <Route path='/GroupUsers' component={(props) => <GroupUsers user={user} {...props} />} />
+            <Route path='/AddGroup' component={() => <GroupAdd user={user} />} />
             <Footer />
           </div>
         </Router>
