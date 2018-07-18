@@ -33,7 +33,7 @@ class Groups extends Component {
 
   render() {
     console.log('RENDER:  ',this.state)
-    const members = this.state.group ? this.state.group.members.map( member => <GroupMember user={member} /> ) : ''
+    const members = this.state.group ? this.state.group.members.map( (member, i) => <GroupMember member={member} /> ) : ''
     const listings = this.state.group ? this.state.group.listings.map( (listing, i) => <GroupListing listing={listing} key={i} />) : ''
     const groupName = this.state.group ? this.state.groupName : ''
     return (
