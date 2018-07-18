@@ -41,10 +41,10 @@ class Groups extends Component {
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
         <Button variant="outlined" color="primary"> 
-          <Link to='/GroupUsers'>Add a Roommate</Link>
+          <Link to='/AddGroup'>Create Your Group</Link>
         </Button>
         <Button variant="outlined" color="primary"> 
-          <Link to='/AddGroup'>Create Your Group</Link>
+          <Link to='/GroupUsers'>Add a Roommate</Link>
         </Button>
         <Button variant="outlined" color="primary"> 
           <Link to='/EditGroup'>Edit Your Group</Link>

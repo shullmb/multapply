@@ -27,6 +27,8 @@ router.post('/', (req, res) => {
     if (err) {
       console.log(err);
     } else {
+      group.members.push(ownerId);
+      group.save()
       User.findByIdAndUpdate(req.body.ownerId, {
         $set: {groupId: group._id}
       }, function(err, user) {
@@ -49,8 +51,6 @@ router.get('/:id', (req, res) => {
         }
       })
 })
-
-
 
 router.put('/:id', (req,res) => {
   Group.findByIdAndUpdate(req.params.id,
