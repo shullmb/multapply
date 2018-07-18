@@ -20,26 +20,22 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 3em;
 }
 
 .profile-pic {
-
-  margin-left: 4em;
+  margin-left: 6em;
 }
 
 .profile-pixxx {
   max-width: 75%;
-    height: auto;
-    width: auto\9; /* ie8 */
+  height: auto;
+  width: auto\9; /* ie8 */
   border-radius: 50%;
 }
 
 .update-profile {
-  margin-left: 4em;
-}
-
-.landing-header {
-  text-align: center;
+  margin-left: 6em;
 }
 
 h1 {
@@ -69,6 +65,10 @@ p {
   margin-right: 2em;
 }
 
+.prop-man-pic, .hero-blurb {
+  padding-bottom: 4em;
+}
+
 .rental-pic {
   margin-left: 2em;
 }
@@ -94,6 +94,7 @@ p {
 .footer, .navbar {
   height: 20px;
   background: #2F4858;
+  font-size: 2vh;
 }
 
 a {
@@ -101,6 +102,24 @@ a {
   color: #F6AE2D;
 }
 
+.pic-btn, .app-btn, .bio-btn {
+  background-color: #FFF;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  border: none;
+}
+
+.pic-btn:hover, .app-btn:hover, .bio-btn:hover {
+  background-color: #F26419;
+  color: #FFF;
+  cursor: pointer;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
 
 
 
