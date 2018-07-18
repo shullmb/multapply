@@ -11,6 +11,13 @@ router.get('/', (req, res) => {
   })
 })
 
+// GET /users/:id
+router.get('/:id', (req, res) => {
+  User.findOne({_id: req.params.id }, function(err, user) {
+    err? res.send(err) : res.json(user)
+  })
+})
+
 // PUT /users/:id
 router.put('/:id', (req, res) => {
   console.log('🙌  🙌 HITTING THE PUT ROUTE 🙌  🙌')

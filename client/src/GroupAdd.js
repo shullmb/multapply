@@ -22,7 +22,10 @@ class GroupAdd extends Component {
     axios.post('/groups', {
       name: this.state.name,
       ownerId: this.props.user._id
-    }).then( )
+    }).then( results => {
+      this.props.refresh();
+      console.log(results)
+    })
   }
 
   render() {

@@ -24,6 +24,7 @@ class App extends Component {
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.logout = this.logout.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
+    this.refreshUserInfo = this.refreshUserInfo.bind(this);
   }
 
   liftTokenToState(data) {
@@ -38,6 +39,16 @@ class App extends Component {
     this.setState({
       token: '',
       user: null
+    })
+  }
+
+  refreshUserInfo() {
+    let userId = this.state.user._id
+    axios.get(`/users/${userId}`).then( results => {
+      console.log(results)
+      this.setState({
+        user: results.data
+      })
     })
   }
 
@@ -77,11 +88,11 @@ class App extends Component {
             <p>An application for applications</p>
             <Route path='/Dashboard' component={() => <Dashboard user={user} />} />
             <Route path='/ListingForm' component={ListingForm} />
-            <Route path='/Profile' component={() => <Profile user={user} refresh={this.checkForLocalToken} />} />
+            <Route path='/Profile' component={() => <Profile user={user} refresh={this.refreshUserInfo} />} />
             <Route path='/Listings' component={() => <Listings user={user} />} />
-            <Route path='/Groups' component={() => <Groups user={user} />} />
+            <Route path='/Groups' component={() => <Groups user={user} refresh={this.refreshUserInfo}/>} />
             <Route path='/GroupUsers' component={(props) => <GroupUsers user={user} {...props} />} />
-            <Route path='/AddGroup' component={() => <GroupAdd user={user} />} />
+            <Route path='/AddGroup' component={() => <GroupAdd user={user} refresh={this.refreshUserInfo} />} />
             <Footer />
           </div>
         </Router>
