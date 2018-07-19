@@ -13,7 +13,7 @@ const app = express();
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
 
-mongoose.connect('mongodb://localhost/multapplyDev')
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
 app.use(express.static(__dirname+ "/client/build"));
 
