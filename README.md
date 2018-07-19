@@ -48,13 +48,19 @@ done in the App.css file and was imported into the App.js. Our data form submiss
 incorporation of the modals allow a quick and efficient user experience for inputting data.  
 
 ![checkbox](/client/public/img/stylecomponent.png)
- *This component is an example of a styling component that was used to render a banner on our landing page.*
+
+ *This component is an example of a styling component that was used to render
+ a banner on our landing page.*
 
  ![checkbox](/client/public/img/functionalcomponent.png)
-  *This component is an example of a functional component that was used used to add a group.*
+
+  *This component is an example of a functional component that was used used
+  to add a group.*
 
   ![checkbox](/client/public/img/biomodal.png)
-   *This form was wrapped in a modal and renders for a user to update the bio section in their profile.*
+
+   *This form was wrapped in a modal and renders for a user to update the
+   bio section in their profile.*
 
   ## Backend Design
 
@@ -66,12 +72,15 @@ incorporation of the modals allow a quick and efficient user experience for inpu
   Our collections consisted of users, listings and groups as seen below.
 
   ![checkbox](/client/public/img/usermodel.png)
+
   *User Model.*
 
   ![checkbox](/client/public/img/groupmodel.png)
+
   *Group Model.*
 
   ![checkbox](/client/public/img/listingmodel.png)
+
   *Listing Model.*
 
 ## Connecting Frontend with the Backend
@@ -80,6 +89,7 @@ We used a serious of axios calls to communicate between the frontend and backend
 frontend and the database.
 
 ![checkbox](/client/public/img/axioscall.png)
+
 *Axios call to get group information.*
 
 ## Future Features
@@ -99,4 +109,4 @@ project also allowed us to learn from each other and build upon our existing ful
 
 ## Acknowledgments
 
-We would like to thank Steve Peters and Kyle Van Bergen and the other two group on assisting us and providing help at every turn of this project. We would also like to thank the other two groups on collaborating and sharing information on tackling a variety of challenges through out this project. 
+We would like to thank Steve Peters and Kyle Van Bergen and the other two group on assisting us and providing help at every turn of this project. We would also like to thank the other two groups on collaborating and sharing information on tackling a variety of challenges through out this project.
