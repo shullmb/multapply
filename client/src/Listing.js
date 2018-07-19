@@ -10,7 +10,7 @@ class Listing extends Component {
     const listing = this.props.listing;
     return(
       <div>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} class="listings">
           <Paper>
             <h3>{listing.title}</h3>
             <h4>{listing.city}</h4>
