@@ -21,9 +21,10 @@ app.use('/auth', auth);
 app.use('/users', users);
 app.use('/listings', listings);
 app.use('/groups', groups);
-// app.get('*',(req, res)=>{
-//   res.sendFile(__dirname + "/client/build/index.html");
-// });
+
+app.get('*', (req, res)=>{
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 var port = process.env.PORT || 3000;
 

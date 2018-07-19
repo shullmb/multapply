@@ -75,9 +75,6 @@ class UpdateApp extends Component {
           City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
           State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
           Zip: <input type='number' name="zip" value={this.state.zip} onChange={this.handleAppChange} /><br />
-          {/* REMOVE DUPLICATE FIELDS */}
-          City: <input type='text' name="city" value={this.state.city} onChange={this.handleAppChange} /><br />
-          State: <input type='text' name="state" value={this.state.state} onChange={this.handleAppChange} /><br />
           SSN: <input type='number' name="socialSecurity" value={this.state.socialSecurity} onChange={this.handleAppChange} /><br />
           Current employer:<input type='text' name="currentEmployer" value={this.state.currentEmployer} onChange={this.handleAppChange} /><br />
           Current monthly income:<input type='number' name="currentMonthIncome" value={this.state.currentMonthIncome} onChange={this.handleAppChange} /><br />
