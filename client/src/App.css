@@ -2,7 +2,7 @@ body, html {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  background-color: #7B8087;
+  background-color: #E0E2E5;
 }
 
 .login-btn, .signup-btn {
@@ -39,15 +39,15 @@ body, html {
 }
 
 h1 {
-  color: #F26419;
+  color: #4253AF;
 }
-h2 {
+h2, .center {
   text-align: center;
-  color: #C7D5DF;
+  color: #000;
 }
 
 h3 {
-  color: #C7D5DF;
+  color: #4253AF;
 }
 
 p {
@@ -56,9 +56,9 @@ p {
 }
 
 .prop-man-pic, .rental-pic {
-  height: 75%;
-  width: 75%;
-  border-radius: 50%;
+  height: 85%;
+  width: 85%;
+  border-radius: 10px;
 }
 
 .prop-man-pic {
@@ -120,6 +120,12 @@ a {
 ul {
   list-style-type: none;
 }
+ 
+.listings {
+  margin: auto;
+  padding: 30px 30px;
+}
+
 
 
 

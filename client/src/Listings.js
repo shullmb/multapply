@@ -30,18 +30,17 @@ render() {
   const listings = this.state.listings ? this.state.listings.map( listing => <Listing listing={listing} group={this.props.user.groupId}/>) : '';
   console.log("🔥🔥 GROUP ID", this.props.user.groupId)
   return (
-    <div>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <Paper><h2>Recommended for you:</h2></Paper>
+        <div>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <h2>Recommended for you:</h2>
+          </Grid>
+          <Grid class="listings" item xs={12}>
+              {listings}
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Paper>
-            {listings}
-          </Paper>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+
     )
   }
 }

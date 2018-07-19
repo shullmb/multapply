@@ -41,13 +41,13 @@ class Groups extends Component {
       <div>
         <h1>Hello, {this.props.user.name}!</h1>
         <h2>{groupName}</h2>
-        <Button variant="outlined" color="primary" onClick={this.props.refresh}> 
+        <Button onClick={this.props.refresh}> 
           <Link to='/AddGroup'>Create Your Group</Link>
         </Button>
-        <Button variant="outlined" color="primary"> 
+        <Button> 
           <Link to='/GroupUsers'>Add a Roommate</Link>
         </Button>
-        <Button variant="outlined" color="primary"> 
+        <Button> 
           <Link to='/EditGroup'>Edit Your Group</Link>
         </Button>
         <GroupAppSummary group={groupSummary} />

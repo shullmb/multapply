@@ -25,7 +25,7 @@ class GroupAppSummary extends Component {
     const groupSummary = this.props.group ? this.props.group.map( member => <h3>{member.name} : {member.creditScore}</h3>) : ''
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.onOpenGroupAppModal} >
+        <Button onClick={this.onOpenGroupAppModal} >
           <a>See Group Application Summary</a>
         </Button>
         <Modal open={open} onClose={this.onCloseGroupAppModal} center>

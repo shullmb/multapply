@@ -11,12 +11,12 @@ class Dashboard extends Component {
       <div>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <h2>DASHBOARD</h2>
+          <h2>DASHBOARD</h2><br />
+          <h3 class="center" >Hello, {this.props.user.name}!</h3>
         </Grid>
         <Grid item xs={12} sm={6}>
         <div class="profile-pic">
           <img class="profile-pixxx" src="../img/smiley.png" /><br />
-          <h3>Hello, {this.props.user.name}!</h3><br />
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
