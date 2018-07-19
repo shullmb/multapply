@@ -109,4 +109,4 @@ project also allowed us to learn from each other and build upon our existing ful
 
 ## Acknowledgments
 
-We would like to thank Steve Peters and Kyle Van Bergen and the other two group on assisting us and providing help at every turn of this project. We would also like to thank the other two groups on collaborating and sharing information on tackling a variety of challenges through out this project.
+We would like to thank Steve Peters and Kyle Van Bergen. We would also like to thank the other two groups on collaborating and sharing information on tackling a variety of challenges through out this project.
